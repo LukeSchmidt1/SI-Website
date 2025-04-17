@@ -6,7 +6,7 @@
 	    $user="phpuser";
 	   	$pwd="password123";
 
-	    //$db="u450059702_Project2;
+	    //$db="u450059702_Project2";
 	    //$user="u450059702_ericluke";
 	    //$pwd="Thunder23$!";
 
