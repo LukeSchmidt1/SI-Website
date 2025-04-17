@@ -29,7 +29,7 @@
             $logged = "Login";
         }
 
-        $upperLogged = strtoupper($logged);
+        $upperLogged = ucfirst($logged);
         echo <<<EOT
         <header class="p-3">
             <div class="d-flex align-items-center mb-3">
@@ -62,7 +62,7 @@ EOT;
         }
         echo <<<EOT
                     <li class="nav-item">
-                        <a class="nav-link" href="$logged.php">$logged</a>
+                        <a class="nav-link" href="$logged.php">$upperLogged</a>
                     </li>
                 </ul>
             </nav>
