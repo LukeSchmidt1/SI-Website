@@ -10,25 +10,22 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $email = trim($_POST['email']);
     $password = trim($_POST['password']);
 
-   
     if (empty($name) || empty($email) || empty($password)) {
-        $message = "All fields are required.";
+        $message = "<div class=\"alert alert-info mt-3\">All fields are required.</div>";
     } else {
-        
         $shaPassword = sha1($password);
 
-        
         try {
             $pdo = connectDB();
             $stmt = $pdo->prepare("INSERT INTO Leader (name, email, password) VALUES (?, ?, ?)");
             $stmt->execute([$name, $email, $shaPassword]);
 
-            $message = "Account created successfully. You may now log in.";
+            $message = "<div class=\"alert alert-info mt-3\">Account created successfully. You may now log in.</div>";
         } catch (PDOException $e) {
             if ($e->getCode() == 23000) { 
-                $message = "An account with this email already exists.";
+                $message = "<div class=\"alert alert-info mt-3\">An account with this email already exists.</div>";
             } else {
-                $message = "Error: " . $e->getMessage();
+                $message = "<div class=\"alert alert-info mt-3\">Error: " . $e->getMessage() . "</div>";
             }
         }
     }
@@ -52,11 +49,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             <div class="col-md-6">
                 <h1 class="text-center">Sign Up</h1>
                 <?php if (!empty($message)): ?>
-                    <div class="alert alert-info mt-3">
-                        <?php echo $message; ?>
-                    </div>
+                    <?php echo $message; ?>
                 <?php endif; ?>
-                <form action="signup.php" method="POST" class="p-4 border rounded bg-light mt-4">
+                <form action="signup.php" method="POST" class="p-4 border rounded bg-light mt-4" onsubmit="return validateSignupForm()">
                     <div class="form-group">
                         <label for="name">Name</label>
                         <input type="text" name="name" id="name" class="form-control" placeholder="Enter your name" required>
@@ -77,6 +72,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         
     </div>
 
+    <script src="./js/validateSignup.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
   </body>
 </html>
