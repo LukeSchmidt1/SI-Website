@@ -21,8 +21,8 @@
 
       echo <<<EOT
       <div class="my-3">
-          <label for="searchInput" class="form-label">Search by Leader Name or Class Name:</label>
-          <input type="text" id="searchInput" class="form-control d-inline-block w-50" placeholder="e.g., John or BIO 1107">
+          <label for="searchInput" class="form-label">Search by Leader Name:</label>
+          <input type="text" id="searchInput" class="form-control d-inline-block w-50" placeholder="e.g., John">
       </div>
       <div id="tableContainer">
           <!-- Table will be dynamically populated here -->
