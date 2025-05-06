@@ -21,11 +21,10 @@
 
       echo <<<EOT
       <div class="my-3">
-          <label for="searchInput" class="form-label">Search by Leader Name:</label>
-          <input type="text" id="searchInput" class="form-control d-inline-block w-50" placeholder="e.g., John">
+          <label for="searchInput" class="form-label">Search by SI Leader Name:</label>
+          <input type="text" id="searchInput" class="form-control d-inline-block w-50" placeholder="e.g., Abby">
       </div>
       <div id="tableContainer">
-          <!-- Table will be dynamically populated here -->
           <table class="table table-striped table-bordered mt-4">
               <thead class="table-dark">
                   <tr>
@@ -37,7 +36,6 @@
                   </tr>
               </thead>
               <tbody id="results">
-                  <!-- Data rows will be inserted here dynamically via Ajax -->
               </tbody>
           </table>
       </div>
