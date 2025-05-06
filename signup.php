@@ -51,6 +51,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 <?php if (!empty($message)): ?>
                     <?php echo $message; ?>
                 <?php endif; ?>
+                <div id="js-alert-placeholder"></div>
                 <form action="signup.php" method="POST" class="p-4 border rounded bg-light mt-4" onsubmit="return validateSignupForm()">
                     <div class="form-group">
                         <label for="name">Name</label>
