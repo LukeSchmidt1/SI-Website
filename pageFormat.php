@@ -54,7 +54,7 @@ EOT;
         if (isset($_SESSION['loggedIn']) && $_SESSION['loggedIn']) { 
             echo <<<EOT
                     <li class="nav-item">
-                        <a class="nav-link" href="addLeader.php">Add Leader</a>
+                        <a class="nav-link" href="addSI.php">Add SI Leader</a>
                     </li>
 EOT;
         }
