@@ -26,12 +26,18 @@ foreach ($results as $item) {
         <td>{$item['Class_name']}</td>
         <td>{$item['Session_time']}</td>
         <td>{$item['Session_location']}</td>
+EOT;
+    if (isset($_SESSION['loggedIn']) && $_SESSION['loggedIn']) {
+        echo <<<EOT
         <td>
-            <form method='POST' action='deleteLeader.php' onsubmit="return confirm('Are you sure you want to delete this leader?');">
+            <form method='POST' action='deleteLeader.php'>
                 <input type='hidden' name='id' value='{$item['Id']}' />
                 <button type='submit' class='btn btn-danger btn-sm'>Delete</button>
             </form>
         </td>
+EOT;
+    }
+    echo <<<EOT
     </tr>
 EOT;
 }

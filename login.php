@@ -23,7 +23,7 @@ if (isset($_SESSION['loggedIn']) && $_SESSION['loggedIn']) {
     
       <div class="row justify-content-center"> 
         <h1 class="text-center">Login</h1>
-        <div class="col-md-6">
+        <div class="form-wrapper">
           <form action="login.php" method="POST" class="p-4 border rounded bg-light">
             <div class="form-group">
               <label for="email">Email address</label>

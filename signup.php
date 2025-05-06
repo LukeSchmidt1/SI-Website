@@ -48,7 +48,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         ?>
 
         <div class="row justify-content-center mt-4">
-            <div class="col-md-6">
+        <div class="form-wrapper">
                 <h1 class="text-center">Sign Up</h1>
                 <?php if (!empty($message)): ?>
                     <?php echo $message; ?>
