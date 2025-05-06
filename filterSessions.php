@@ -15,7 +15,6 @@ if ($search == '') {
 
 $pdo = connectDB();
 $stmt = $pdo->prepare($query);
-
 $stmt->execute($params);
 $results = $stmt->fetchAll();
 
@@ -27,6 +26,12 @@ foreach ($results as $item) {
         <td>{$item['Class_name']}</td>
         <td>{$item['Session_time']}</td>
         <td>{$item['Session_location']}</td>
+        <td>
+            <form method='POST' action='deleteLeader.php' onsubmit="return confirm('Are you sure you want to delete this leader?');">
+                <input type='hidden' name='id' value='{$item['Id']}' />
+                <button type='submit' class='btn btn-danger btn-sm'>Delete</button>
+            </form>
+        </td>
     </tr>
 EOT;
 }

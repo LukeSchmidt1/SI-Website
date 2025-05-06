@@ -21,10 +21,11 @@
 
       echo <<<EOT
       <div class="my-3">
-          <label for="searchInput" class="form-label">Search by SI Leader Name:</label>
-          <input type="text" id="searchInput" class="form-control d-inline-block w-50" placeholder="e.g., Abby">
+          <label for="searchInput" class="form-label">Search by Leader Name or Class Name:</label>
+          <input type="text" id="searchInput" class="form-control d-inline-block w-50" placeholder="e.g., John or BIO 1107">
       </div>
       <div id="tableContainer">
+          <!-- Table will be dynamically populated here -->
           <table class="table table-striped table-bordered mt-4">
               <thead class="table-dark">
                   <tr>
@@ -33,9 +34,31 @@
                       <th>Class</th>
                       <th>Time</th>
                       <th>Location</th>
+                      <th>Action</th>
                   </tr>
               </thead>
               <tbody id="results">
+                  <!-- Data rows will be inserted here dynamically via Ajax -->
+EOT;
+
+                  // Loop through results and output each row with a Delete button
+                  foreach ($arr as $row) {
+                      echo "<tr>";
+                      echo "<td>" . htmlspecialchars($row['name']) . "</td>";
+                      echo "<td>" . htmlspecialchars($row['email']) . "</td>";
+                      echo "<td>" . htmlspecialchars($row['Class_name']) . "</td>";
+                      echo "<td>" . htmlspecialchars($row['Session_time']) . "</td>";
+                      echo "<td>" . htmlspecialchars($row['Session_location']) . "</td>";
+                      echo "<td>
+                              <form method='POST' action='deleteLeader.php' onsubmit=\"return confirm('Are you sure you want to delete this leader?');\">
+                                <input type='hidden' name='id' value='" . $row['id'] . "' />
+                                <button type='submit' class='btn btn-danger btn-sm'>Delete</button>
+                              </form>
+                            </td>";
+                      echo "</tr>";
+                  }
+
+      echo <<<EOT
               </tbody>
           </table>
       </div>
